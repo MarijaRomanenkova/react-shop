@@ -82,7 +82,7 @@ const cartReducer = ( state, action) => {
 
 }
 export const CartProvider = ({ children }) => { 
-    const [ {cartItems, isCartOpen, cartCount, cartTotal }, dispatch ] = useReducer(cartReducer, INITIAL_STATE);
+    const [ { cartItems, isCartOpen, cartCount, cartTotal }, dispatch ] = useReducer(cartReducer, INITIAL_STATE);
 
     const updateCartItemsReducer = (newCartItems) => { 
         const newCartCount = cartItems.reduce((total, cartItem) => total + cartItem.quantity, 0);
@@ -119,7 +119,7 @@ export const CartProvider = ({ children }) => {
         dispatch(
             createAction( CART_ACTION_TYPES.SET_IS_CART_OPEN, bool ));
     };
-    
+
     const value = { isCartOpen, setIsCartOpen, addItemToCart, cartItems, cartCount, removeItemFromCart, clearItemFromCart, cartTotal };
     return (
         <CartContext.Provider value={value}>
